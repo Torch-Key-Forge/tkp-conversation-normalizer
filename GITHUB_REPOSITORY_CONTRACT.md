@@ -20,7 +20,7 @@ Graph-aware, source-traceable normalization for OpenAI conversation exports. An 
 
 ## Visibility
 
-Public only after operator review and a clean anonymous Windows test.
+Public publication candidate.
 
 ## Default branch
 
@@ -28,7 +28,7 @@ Public only after operator review and a clean anonymous Windows test.
 
 ## First release
 
-Do not tag a release during repository creation. First release candidate should follow the clean Windows fixture run.
+Do not tag a release until the clean Windows fixture run is complete and accepted.
 
 ## Required About link
 
