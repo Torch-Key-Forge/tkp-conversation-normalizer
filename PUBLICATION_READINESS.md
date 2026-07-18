@@ -2,26 +2,25 @@
 
 ## Present
 
+- public repository under `Torch-Key-Forge`;
 - real runnable Python package;
 - sanitized fixture;
 - seven automated tests;
 - JSON Schema validation;
-- Windows runner;
+- Windows fixture runner;
 - input/output contract;
 - privacy and limitation disclosures;
 - Project Foreman relationship statement;
-- historic validation summary without private corpus;
-- manifest and checksums.
+- historic validation summary without private source data;
+- public test receipt.
 
-## Still required before public GitHub promotion
+## Still required before the first tagged release
 
-- operator review of repository name and description;
-- final license decision;
-- anonymous clone/install/test on Windows;
-- confirmation that no private path or corpus content remains;
-- creation of the GitHub repository under `Torch-Key-Forge`;
-- first tagged release only after the clean Windows verification.
+- anonymous clone, install, and fixture test on Windows;
+- final long-term license decision;
+- confirmation that the repository remains free of private paths and source conversations;
+- operator acceptance of the Windows verification receipt.
 
 ## Current gate
 
-`PASS_LOCAL_PUBLICATION_CANDIDATE_OPERATOR_REVIEW_REQUIRED`
+`PUBLICATION_CANDIDATE_PUBLISHED_WINDOWS_VERIFICATION_REQUIRED`
