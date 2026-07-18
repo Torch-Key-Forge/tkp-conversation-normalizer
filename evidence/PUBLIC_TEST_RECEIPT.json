@@ -1,0 +1,22 @@
+{
+  "receipt_type": "TKP_CONVERSATION_NORMALIZER_PUBLIC_TEST_RUN",
+  "version": "0.1.0-publication-candidate",
+  "generated_at": "2026-07-18T20:48:04Z",
+  "status": "PASS",
+  "test_count": 7,
+  "passed": 7,
+  "failed": 0,
+  "errors": 0,
+  "fixture_scope": "synthetic_sanitized_only",
+  "validated_behaviors": [
+    "normalized record schema validation",
+    "parent-before-child ordering",
+    "observed branch preservation",
+    "fail-closed asset identity filtering",
+    "continuation question exclusion from restart candidates",
+    "provisional restart candidate creation from explicit resumption plus long gap",
+    "end-to-end CLI receipts and checksums"
+  ],
+  "private_corpus_included": false,
+  "gate": "PASS_LOCAL_PUBLICATION_CANDIDATE_OPERATOR_REVIEW_REQUIRED"
+}
