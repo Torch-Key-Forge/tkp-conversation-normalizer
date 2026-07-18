@@ -1,0 +1,20 @@
+[
+  {
+    "conversation_id": "fixture-branch-001",
+    "turn_id": "branch-a1",
+    "ordinal": 2,
+    "observed_branch_id": "branch_055e890db290"
+  },
+  {
+    "conversation_id": "fixture-branch-001",
+    "turn_id": "branch-u2",
+    "ordinal": 3,
+    "observed_branch_id": "branch_055e890db290"
+  },
+  {
+    "conversation_id": "fixture-branch-001",
+    "turn_id": "branch-a2",
+    "ordinal": 4,
+    "observed_branch_id": "branch_80a6c3d8b089"
+  }
+]
