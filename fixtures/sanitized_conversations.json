@@ -1,0 +1,90 @@
+[
+  {
+    "id": "fixture-linear-001",
+    "title": "Sanitized Linear Conversation",
+    "create_time": 1760000000,
+    "update_time": 1760000060,
+    "mapping": {
+      "root": {"parent": null, "children": ["u1"], "message": null},
+      "u1": {
+        "parent": "root",
+        "children": ["a1"],
+        "message": {
+          "id": "msg-u1",
+          "author": {"role": "user"},
+          "create_time": 1760000000,
+          "content": {"content_type": "text", "parts": ["Please review the attached file_0123456789abcdef01234567 and outline the project."]}
+        }
+      },
+      "a1": {
+        "parent": "u1",
+        "children": ["u2"],
+        "message": {
+          "id": "msg-a1",
+          "author": {"role": "assistant"},
+          "create_time": 1760000030,
+          "content": {"content_type": "text", "parts": ["I will preserve the source identity and produce a structured outline."]}
+        }
+      },
+      "u2": {
+        "parent": "a1",
+        "children": [],
+        "message": {
+          "id": "msg-u2",
+          "author": {"role": "user"},
+          "create_time": 1760000060,
+          "content": {"content_type": "text", "parts": ["What are the next steps? This should remain ordinary continuation, not a restart anchor."]}
+        }
+      }
+    }
+  },
+  {
+    "id": "fixture-branch-001",
+    "title": "Sanitized Branch Conversation",
+    "create_time": 1761000000,
+    "update_time": 1761030000,
+    "mapping": {
+      "root": {"parent": null, "children": ["u1"], "message": null},
+      "u1": {
+        "parent": "root",
+        "children": ["a1", "a2"],
+        "message": {
+          "id": "branch-u1",
+          "author": {"role": "user"},
+          "create_time": 1761000000,
+          "content": {"content_type": "text", "parts": ["Design two approaches and preserve both branches in the source graph."]}
+        }
+      },
+      "a1": {
+        "parent": "u1",
+        "children": ["u2"],
+        "message": {
+          "id": "branch-a1",
+          "author": {"role": "assistant"},
+          "create_time": 1761000030,
+          "content": {"content_type": "text", "parts": ["Approach A emphasizes a minimal parser."]}
+        }
+      },
+      "u2": {
+        "parent": "a1",
+        "children": [],
+        "message": {
+          "id": "branch-u2",
+          "author": {"role": "user"},
+          "create_time": 1761030000,
+          "content": {"content_type": "text", "parts": ["Let’s revisit the project boundary after this long break and isolate normalization from authority inference."]}
+        }
+      },
+      "a2": {
+        "parent": "u1",
+        "children": [],
+        "message": {
+          "id": "branch-a2",
+          "author": {"role": "assistant"},
+          "create_time": 1761000040,
+          "content": {"content_type": "text", "parts": ["Approach B emphasizes exhaustive metadata preservation."]}
+        }
+      }
+    }
+  }
+]
