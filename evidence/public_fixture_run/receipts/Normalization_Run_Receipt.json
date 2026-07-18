@@ -1,0 +1,26 @@
+{
+  "receipt_type": "TKP_CONVERSATION_NORMALIZATION_RUN",
+  "version": "0.1.0",
+  "generated_at": "2026-07-18T20:48:04.343505+00:00",
+  "status": "PASS",
+  "source_files_modified": false,
+  "source_manifest": [
+    {
+      "path": "fixtures/sanitized_conversations.json",
+      "sha256": "9968875f8667cfc5521e52dae17780a8971488004d17863a9c563658572ef616"
+    }
+  ],
+  "schema_sha256": "636faca1fb8b7f777c336fcb9f45bf67c48aaeb0712b132c447af6565b81b2a2",
+  "totals": {
+    "source_file_count": 1,
+    "normalized_conversation_count": 2,
+    "turn_count": 7,
+    "reconstructed_fork_count": 1,
+    "observed_branch_count": 2,
+    "restart_candidate_count": 1,
+    "asset_reference_rows": 1,
+    "empty_content_rows": 0,
+    "exception_count": 0
+  },
+  "authorization_boundary": "Normalization only. No decision authority, execution, or completion is inferred."
+}
