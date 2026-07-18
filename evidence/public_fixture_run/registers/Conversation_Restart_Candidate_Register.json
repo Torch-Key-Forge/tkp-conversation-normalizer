@@ -1,0 +1,15 @@
+[
+  {
+    "conversation_id": "fixture-branch-001",
+    "restart_candidate_id": "restart_0003",
+    "restart_reason": [
+      "explicit_topic_shift_opening",
+      "long_time_gap"
+    ],
+    "restart_confidence": 0.82,
+    "operator_status": "proposed",
+    "materialized_conversation_id": null,
+    "turn_id": "branch-u2",
+    "ordinal": 3
+  }
+]
