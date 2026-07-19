@@ -66,8 +66,10 @@ jobs:
         shell: pwsh
         run: |
           $patterns = @("I:\My Drive", "CJ Burke", "\\Users\\CJ", "00_Admin")
+          $scannerPath = ".github/workflows/windows-verification.yml"
           $hits = @()
           foreach ($file in (git ls-files)) {
+            if ($file -eq $scannerPath) { continue }
             if (Test-Path $file -PathType Leaf) {
               $match = Select-String -Path $file -SimpleMatch -Pattern $patterns -ErrorAction SilentlyContinue
               if ($match) { $hits += $match }
