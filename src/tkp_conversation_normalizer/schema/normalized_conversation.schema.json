@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torchkeypress.com/schemas/normalized-conversation/0.1.0",
+  "title": "TKP Normalized Conversation",
+  "type": "object",
+  "required": ["schema_version", "conversation_id", "title", "source", "turns", "observed_branches", "restart_candidates", "metrics", "limitations"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "conversation_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string"},
+    "project_id": {"type": ["string", "null"]},
+    "created_at": {"type": ["string", "null"]},
+    "updated_at": {"type": ["string", "null"]},
+    "source": {
+      "type": "object",
+      "required": ["source_type", "source_name", "source_record_modified", "completeness", "confidence"],
+      "properties": {
+        "source_type": {"const": "openai_export_json"},
+        "source_name": {"type": "string"},
+        "source_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "source_record_modified": {"const": false},
+        "completeness": {"type": "string"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["turn_id", "node_id", "parent_turn_id", "ordinal", "decimal_label", "role", "created_at", "observed_branch_id", "content_blocks", "asset_ids", "empty_content_classification", "warnings", "source_message_sha256"],
+        "properties": {
+          "turn_id": {"type": "string"},
+          "node_id": {"type": "string"},
+          "parent_turn_id": {"type": ["string", "null"]},
+          "ordinal": {"type": "integer", "minimum": 1},
+          "decimal_label": {"type": "string"},
+          "role": {"type": "string"},
+          "created_at": {"type": ["string", "null"]},
+          "observed_branch_id": {"type": ["string", "null"]},
+          "content_blocks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["block_type", "text", "language", "source_fragment_sha256"],
+              "properties": {
+                "block_type": {"enum": ["markdown", "code", "tool_result", "image_reference", "unknown"]},
+                "text": {"type": "string"},
+                "language": {"type": ["string", "null"]},
+                "source_fragment_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "asset_ids": {"type": "array", "items": {"type": "string"}},
+          "empty_content_classification": {"type": ["string", "null"]},
+          "warnings": {"type": "array", "items": {"type": "string"}},
+          "source_message_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "observed_branches": {
+      "type": "object",
+      "required": ["branching_node_ids", "observed_branch_ids", "authority"],
+      "properties": {
+        "branching_node_ids": {"type": "array", "items": {"type": "string"}},
+        "observed_branch_ids": {"type": "array", "items": {"type": "string"}},
+        "authority": {"const": "mapping.parent"}
+      },
+      "additionalProperties": false
+    },
+    "restart_candidates": {"type": "array", "items": {"type": "object"}},
+    "metrics": {"type": "object"},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
