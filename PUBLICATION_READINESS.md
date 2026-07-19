@@ -3,24 +3,24 @@
 ## Present
 
 - public repository under `Torch-Key-Forge`;
-- real runnable Python package;
+- real runnable Python package and CLI;
+- packaged JSON Schema that survives wheel installation;
 - sanitized fixture;
 - seven automated tests;
-- JSON Schema validation;
 - Windows fixture runner;
 - input/output contract;
 - privacy and limitation disclosures;
 - Project Foreman relationship statement;
 - historic validation summary without private source data;
-- public test receipt.
+- public test receipt;
+- clean GitHub-hosted Windows verification of source tests, wheel build, fresh-environment install, CLI fixture run, PASS receipt, zero exceptions, and targeted privacy scan;
+- passing Windows Verification run `29666876557`.
 
 ## Still required before the first tagged release
 
-- anonymous clone, install, and fixture test on Windows;
-- final long-term license decision;
-- confirmation that the repository remains free of private paths and source conversations;
-- operator acceptance of the Windows verification receipt.
+- explicit long-term license decision;
+- operator authorization to create the `v0.1.0` tag.
 
 ## Current gate
 
-`PUBLICATION_CANDIDATE_PUBLISHED_WINDOWS_VERIFICATION_REQUIRED`
+`PUBLICATION_CANDIDATE_WINDOWS_VERIFIED_LICENSE_DECISION_REQUIRED`
