@@ -39,7 +39,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--schema",
         type=Path,
-        default=Path(__file__).resolve().parents[2] / "schema" / "normalized_conversation.schema.json",
+        default=Path(__file__).resolve().parent / "schema" / "normalized_conversation.schema.json",
     )
     args = parser.parse_args(argv)
 
