@@ -68,14 +68,15 @@ The historic private validation run processed 328 conversations and 29,345 turns
 
 ## Status
 
-`0.1.0-publication-candidate`
+`0.1.0-release-candidate`
 
 - Runnable: yes
 - Fixture-only public tests: yes
+- Clean Windows wheel verification: passed
 - Live capture: no
 - Private corpus included: no
 - Decision/authority intelligence: out of scope
 
 ## License
 
-Source is published for review. No reuse license is granted yet. See `LICENSE`.
+Released under the MIT License. See `LICENSE`.
