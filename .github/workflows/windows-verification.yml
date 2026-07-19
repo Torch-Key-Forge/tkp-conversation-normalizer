@@ -1,0 +1,79 @@
+name: Windows Verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install source-test dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Run source tests
+        shell: pwsh
+        run: python -m pytest -q
+
+      - name: Build wheel
+        shell: pwsh
+        run: python -m build --wheel
+
+      - name: Install wheel into a fresh environment and run the CLI
+        shell: pwsh
+        run: |
+          $venv = Join-Path $env:RUNNER_TEMP "tkp-normalizer-wheel-venv"
+          $smoke = Join-Path $env:RUNNER_TEMP "tkp-normalizer-smoke"
+          python -m venv $venv
+          $wheel = (Get-ChildItem "dist\*.whl" | Select-Object -First 1).FullName
+          & "$venv\Scripts\python.exe" -m pip install --upgrade pip
+          & "$venv\Scripts\python.exe" -m pip install $wheel
+          New-Item -ItemType Directory -Force -Path $smoke | Out-Null
+          $input = Join-Path $env:GITHUB_WORKSPACE "fixtures\sanitized_conversations.json"
+          $output = Join-Path $smoke "output"
+          Push-Location $smoke
+          try {
+            & "$venv\Scripts\tkp-normalize.exe" $input $output
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          finally {
+            Pop-Location
+          }
+          $receipt = Get-Content (Join-Path $output "receipts\Normalization_Run_Receipt.json") -Raw | ConvertFrom-Json
+          if ($receipt.status -ne "PASS") { throw "Normalization receipt did not pass." }
+          if ($receipt.totals.exception_count -ne 0) { throw "Normalization reported exceptions." }
+
+      - name: Scan tracked files for known private-path markers
+        shell: pwsh
+        run: |
+          $patterns = @("I:\My Drive", "CJ Burke", "\\Users\\CJ", "00_Admin")
+          $hits = @()
+          foreach ($file in (git ls-files)) {
+            if (Test-Path $file -PathType Leaf) {
+              $match = Select-String -Path $file -SimpleMatch -Pattern $patterns -ErrorAction SilentlyContinue
+              if ($match) { $hits += $match }
+            }
+          }
+          if ($hits.Count -gt 0) {
+            $hits | ForEach-Object { Write-Host $_ }
+            throw "Known private-path marker found in tracked files."
+          }
