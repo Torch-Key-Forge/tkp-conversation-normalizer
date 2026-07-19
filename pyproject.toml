@@ -21,10 +21,13 @@ classifiers = [
 tkp-normalize = "tkp_conversation_normalizer.cli:main"
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+dev = ["pytest>=8", "build>=1.2"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+tkp_conversation_normalizer = ["schema/*.json"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
