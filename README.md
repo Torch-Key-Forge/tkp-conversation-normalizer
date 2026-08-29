@@ -66,16 +66,31 @@ The included fixture is synthetic and sanitized. It demonstrates linear turns, b
 
 The historic private validation run processed 328 conversations and 29,345 turns with zero recorded normalization exceptions. That run is supporting evidence, not bundled source data. See `evidence/HISTORIC_VALIDATION_SUMMARY.md`.
 
-## Status
+## Current release state
 
-`0.1.0-release-candidate`
+Current public release: **v0.1.0**, published July 19, 2026.
 
 - Runnable: yes
 - Fixture-only public tests: yes
 - Clean Windows wheel verification: passed
+- GitHub-hosted Windows verification on the release head: passed
 - Live capture: no
 - Private corpus included: no
 - Decision/authority intelligence: out of scope
+
+The release verification covered source tests, wheel construction, fresh-environment installation, CLI fixture execution, schema validation, PASS receipt generation, zero recorded exceptions, and a targeted privacy scan. See [PUBLICATION_READINESS.md](PUBLICATION_READINESS.md) and [WINDOWS_VERIFICATION_GATE.md](WINDOWS_VERIFICATION_GATE.md).
+
+## Support and security
+
+For ordinary usage questions and non-sensitive defects, see [SUPPORT.md](SUPPORT.md).
+
+For credential, privacy, and security-sensitive handling guidance, see [SECURITY.md](SECURITY.md). The repository does not currently claim a dedicated private vulnerability-reporting channel.
+
+## Product relationship and portability boundary
+
+This repository is an upstream **product component** for Project Foreman. Its current public contract is normalization of supported conversation-export JSON into stable, source-traceable records.
+
+No general multi-provider acquisition layer, decision/authority engine, or cross-marketplace/target adapter framework is claimed here. Portability beyond the documented input forms and packaged Python CLI has not been independently established by this repository.
 
 ## License
 
