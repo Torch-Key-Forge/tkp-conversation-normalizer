@@ -1,6 +1,6 @@
 # Publication Readiness
 
-## Present
+## Verified public state
 
 - public repository under `Torch-Key-Forge`;
 - real runnable Python package and CLI;
@@ -14,13 +14,17 @@
 - historic validation summary without private source data;
 - public test receipt;
 - clean GitHub-hosted Windows verification of source tests, wheel build, fresh-environment install, CLI fixture run, PASS receipt, zero exceptions, and targeted privacy scan;
-- passing Windows Verification run `29666876557`;
-- MIT License adopted.
+- passing Windows Verification run `29666876557` for the original publication gate;
+- successful Windows Verification run `29667356808` on current release head `a3b312b552e86a6f9c0ab3d73ab074099604d741`;
+- MIT License adopted;
+- public release `v0.1.0` published July 19, 2026.
 
-## Still required before the first tagged release
+## Release state
 
-- creation of the `v0.1.0` tag.
+`v0.1.0` is published and is the current public release observed during the GitHub Estate Reconciliation pass on August 29, 2026.
+
+This record does not authorize or imply a later release. Any subsequent version requires its own evidence and release decision.
 
 ## Current gate
 
-`RELEASE_READY_V0_1_0_TAG_PENDING`
+`V0_1_0_RELEASED_AND_VERIFIED`
